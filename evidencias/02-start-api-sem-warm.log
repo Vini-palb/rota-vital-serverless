@@ -1,0 +1,53 @@
+No current session found, using default AWS::AccountId
+Mounting HelloWorldFunction at http://127.0.0.1:3000/guias [POST]
+You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. If you used sam build before running local commands, you will need to re-run sam build for the changes to be picked up. You only need to restart SAM CLI if you update your AWS SAM template
+2026-11-26 03:04:20 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+2026-11-26 03:04:20 [33mPress CTRL+C to quit[0m
+Invoking app.lambda_handler (python3.12)
+Local image is up-to-date
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-x86_64.
+
+Mounting /workspaces/rota-vital-serverless/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: 093a565d1837ba16aa9428cb7ce5f64ded06fe560ccb4f825b5bd972ea63e342
+START RequestId: 817de569-19c0-4f23-a115-76d69b63fc48 Version: $LATEST
+END RequestId: 817de569-19c0-4f23-a115-76d69b63fc48
+REPORT RequestId: 817de569-19c0-4f23-a115-76d69b63fc48	Init Duration: 0.03 ms	Duration: 47.88 ms	Billed Duration: 48 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+No Content-Type given. Defaulting to 'application/json'.
+2026-11-26 03:04:29 127.0.0.1 - - [26/Nov/2026 03:04:29] "[35m[1mPOST /guias HTTP/1.1[0m" 201 -
+Invoking app.lambda_handler (python3.12)
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-x86_64.
+
+Mounting /workspaces/rota-vital-serverless/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: 16909abac42461ddfac27995a1336a466d8a95443409c46cc910c7d846542f39
+START RequestId: d8b5d2ee-f329-42c1-a3c2-e9d6d97938f7 Version: $LATEST
+END RequestId: d8b5d2ee-f329-42c1-a3c2-e9d6d97938f7
+REPORT RequestId: d8b5d2ee-f329-42c1-a3c2-e9d6d97938f7	Init Duration: 0.03 ms	Duration: 47.26 ms	Billed Duration: 48 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+[ERROR] [1795662270480] LAMBDA_RUNTIME Failed to get next invocation. No Response from endpoint
+No Content-Type given. Defaulting to 'application/json'.
+2026-11-26 03:04:30 127.0.0.1 - - [26/Nov/2026 03:04:30] "[35m[1mPOST /guias HTTP/1.1[0m" 201 -
+Invoking app.lambda_handler (python3.12)
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-x86_64.
+
+Mounting /workspaces/rota-vital-serverless/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: 6e0c1e9a721bb8198aafd7b2824dea863df2aa2b0f9a208696c33ae1cf5ac452
+START RequestId: 3f6dba48-9a1a-4645-b88f-ff0477a6d6e0 Version: $LATEST
+END RequestId: 3f6dba48-9a1a-4645-b88f-ff0477a6d6e0
+REPORT RequestId: 3f6dba48-9a1a-4645-b88f-ff0477a6d6e0	Init Duration: 0.08 ms	Duration: 47.90 ms	Billed Duration: 48 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+
+No Content-Type given. Defaulting to 'application/json'.
+2026-11-26 03:04:31 127.0.0.1 - - [26/Nov/2026 03:04:31] "[35m[1mPOST /guias HTTP/1.1[0m" 201 -
+Invoking app.lambda_handler (python3.12)
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-x86_64.
+
+Mounting /workspaces/rota-vital-serverless/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: bb304a283644e865e3b9d17294dfd69fc70ea1ce5a644c739dbf9614c24f8050
+Function 'HelloWorldFunction' timed out after 3 seconds
+26 Nov 2026 03:04:34,657 [ERROR] (rapid) Invoke failed error=errResetReceived InvokeID=70d50429-d13c-4a6f-be14-231c80d49e80
+END RequestId: 70d50429-d13c-4a6f-be14-231c80d49e80
+REPORT RequestId: 70d50429-d13c-4a6f-be14-231c80d49e80	Init Duration: 0.14 ms	Duration: 3000.00 ms	Billed Duration: 3000 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+No response from invoke container for HelloWorldFunction
+Invalid lambda response received: Lambda response must be valid json
+2026-11-26 03:04:35 127.0.0.1 - - [26/Nov/2026 03:04:35] "[35m[1mPOST /guias HTTP/1.1[0m" 502 -

@@ -1,0 +1,18 @@
+=== Chamada 1 ===
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 1}
+real	0m0.768s
+user	0m0.003s
+sys	0m0.006s
+
+=== Chamada 2 ===
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 2}
+real	0m0.031s
+user	0m0.003s
+sys	0m0.006s
+
+=== Chamada 3 ===
+{"guia": "G-R-002", "hospital": "H-Caruaru", "bolsas": [], "invocacaoNesteAmbiente": 3}
+real	0m0.027s
+user	0m0.002s
+sys	0m0.006s
+

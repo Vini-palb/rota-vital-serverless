@@ -1,0 +1,35 @@
+=== Invocação 1 ===
+No current session found, using default AWS::AccountId
+Invoking app.lambda_handler (python3.12)
+Local image was not found.
+Removing rapid images for repo public.ecr.aws/sam/emulation-python3.12
+Building image................................
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-x86_64.
+
+Mounting /workspaces/rota-vital-serverless/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: 388264e667a03d89dab3b0d59a74f0f83122bf9663808bf1c91cda8cae959d02
+START RequestId: 3b7f4100-e5dd-46ac-a0f7-64a9b56322c3 Version: $LATEST
+END RequestId: 3b7f4100-e5dd-46ac-a0f7-64a9b56322c3
+REPORT RequestId: 3b7f4100-e5dd-46ac-a0f7-64a9b56322c3	Init Duration: 0.11 ms	Duration: 55.74 ms	Billed Duration: 56 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+{"statusCode": 201, "body": "{\"guia\": \"G-R-001\", \"hospital\": \"H-Recife\", \"bolsas\": [\"O-NEG-0142\"], \"invocacaoNesteAmbiente\": 1}"}
+
+real	0m19.349s
+user	0m2.603s
+sys	0m0.319s
+=== Invocação 2 ===
+No current session found, using default AWS::AccountId
+Invoking app.lambda_handler (python3.12)
+Local image is up-to-date
+Using local image: public.ecr.aws/lambda/python:3.12-rapid-x86_64.
+
+Mounting /workspaces/rota-vital-serverless/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated, inside runtime container
+SAM_CONTAINER_ID: bd13588ef03223b015780dcc53574fe246b135e8cee5b8f4abf1666a889c0265
+START RequestId: 01cb1839-c303-4669-8ef2-266643e074fa Version: $LATEST
+END RequestId: 01cb1839-c303-4669-8ef2-266643e074fa
+REPORT RequestId: 01cb1839-c303-4669-8ef2-266643e074fa	Init Duration: 0.03 ms	Duration: 49.23 ms	Billed Duration: 50 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	
+{"statusCode": 201, "body": "{\"guia\": \"G-R-001\", \"hospital\": \"H-Recife\", \"bolsas\": [\"O-NEG-0142\"], \"invocacaoNesteAmbiente\": 1}"}
+[ERROR] [1795662227504] LAMBDA_RUNTIME Failed to get next invocation. No Response from endpoint
+
+real	0m4.445s
+user	0m2.656s
+sys	0m0.279s

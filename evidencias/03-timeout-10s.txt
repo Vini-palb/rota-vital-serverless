@@ -1,0 +1,12 @@
+HTTP/1.1 201 CREATED
+Server: Werkzeug/3.1.9 Python/3.14.2
+Date: Thu, 26 Nov 2026 03:05:12 GMT
+Content-Type: application/json
+Content-Length: 80
+Connection: close
+
+{"guia": "G-R-003", "hospital": null, "bolsas": [], "invocacaoNesteAmbiente": 1}
+real	0m5.798s
+user	0m0.003s
+sys	0m0.007s
+

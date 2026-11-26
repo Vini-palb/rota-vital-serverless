@@ -192,4 +192,4 @@ Conforme PO-CESAR-021.
 
 - **Ferramenta:** Claude (Anthropic).
 - **Finalidade:** montar o repositório (template, handler, script `roteiro.sh`, testes), identificar e corrigir o erro de body em base64 no evento gerado pelo SAM, executar os passos no GitHub Codespaces e rascunhar o README e as respostas.
-- **Como validei:** ⟨descreva o que você conferiu: ex.: revisei as saídas em `evidencias/`, rodei de novo os comandos ao gravar o vídeo, refiz a conta de custo e comparei as respostas com as minhas⟩
+- **Como validei:** Rodei os comandos de novo na gravação do vídeo (invoke, start-api com curl, timeout) e vi os mesmos resultados, revisei e reescrevi a explicação da resposta 1, vi que o passo a passo começava no Passo 3 e pedi a correção.

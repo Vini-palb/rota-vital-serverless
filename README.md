@@ -17,14 +17,43 @@ roteiro.sh             # roda os Passos 3, 4 e 5 e salva as saídas em evidencia
 evidencias/            # prints e saídas dos comandos
 ```
 
-## Pré-requisitos
+## Como rodar
 
-- Docker Desktop aberto
-- AWS SAM CLI (`sam --version`)
+### Passo 1: instalar as ferramentas
+
+Na própria máquina:
+
+- [Docker Desktop](https://docs.docker.com/get-started/get-docker/) aberto (no Windows, exige a virtualização ligada no BIOS)
+- [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
 - Python 3.12
 - No Windows: Git Bash ou WSL
 
-## Como rodar
+Ou no **GitHub Codespaces** (o que eu usei, porque já vem com Docker): no repositório, clique em **Code > Codespaces > Create codespace on main** e, no terminal, instale o SAM:
+
+```bash
+pip install aws-sam-cli
+```
+
+Conferir:
+
+```bash
+sam --version
+docker --version
+```
+
+### Passo 2: obter o projeto
+
+```bash
+git clone https://github.com/Vini-palb/rota-vital-serverless.git
+cd rota-vital-serverless
+```
+
+(No Codespaces, o repositório já vem aberto em `/workspaces/rota-vital-serverless`.)
+
+O projeto segue o `sam init` do enunciado (AWS Quick Start Templates > Hello World Example > Python 3.12 > zip), com estas mudanças:
+
+- `template.yaml`: caminho `/hello` trocado por `/guias` e método `get` trocado por `post`
+- `hello_world/app.py`: código do enunciado, com o ajuste de base64 explicado mais abaixo
 
 ### Passo 3: invocação com evento
 
@@ -34,6 +63,7 @@ sam local generate-event apigateway aws-proxy --method POST --path guias \
   --body '{"requisicaoId":"R-001","hospital":"H-Recife","bolsas":["O-NEG-0142"]}' > events/pedido.json
 
 sam build            # se o Python da máquina não for 3.12: sam build --use-container
+                     # (o ./roteiro.sh invoke já usa --use-container)
 sam local invoke -e events/pedido.json   # rodar duas vezes
 # ou: ./roteiro.sh invoke   (faz as duas com `time` e salva em evidencias/)
 ```
@@ -55,15 +85,24 @@ sam local start-api --warm-containers LAZY
 
 ### Passo 5: limite de tempo
 
+O `template.yaml` do repositório está com `Timeout: 10`, que é o estado final depois do ajuste. Para reproduzir o erro, volte para 3 antes:
+
 ```bash
-curl -X POST http://127.0.0.1:3000/guias -H "Content-Type: application/json" \
+# 1) Timeout em 3 s: a chamada deve estourar o tempo
+sed -i 's/Timeout: 10/Timeout: 3 /' template.yaml
+sam build            # ou: sam build --use-container
+sam local start-api  # terminal 1
+# terminal 2:
+curl -i -X POST http://127.0.0.1:3000/guias -H "Content-Type: application/json" \
   -d '{"requisicaoId":"R-003","demorar":true}'
 # ou: ./roteiro.sh timeout 3s
+# esperado: 502 Bad Gateway; no terminal 1, "timed out after 3 seconds"
 
-# trocar Timeout: 3 -> 10 em Globals no template.yaml, depois:
+# 2) Timeout em 10 s: parar o start-api (Ctrl+C) e repetir
+sed -i 's/Timeout: 3 /Timeout: 10/' template.yaml
 sam build
-sam local start-api
-./roteiro.sh timeout 10s
+sam local start-api  # terminal 1
+./roteiro.sh timeout 10s   # terminal 2; esperado: 201 em ~5 s
 ```
 
 ### Testes do handler (sem Docker)
@@ -141,9 +180,9 @@ Pasta [`evidencias/`](evidencias/): saídas do `roteiro.sh` e prints de cada pas
 | `02-curl-sem-warm.txt` | três chamadas HTTP sem reaproveitamento |
 | `02-curl-lazy.txt` | três chamadas HTTP com `--warm-containers LAZY` |
 | `03-timeout-3s.txt` / `03-timeout-10s.txt` | erro de tempo limite e chamada depois do ajuste |
-| `*.png` | prints dos terminais |
+| `resumo-execucao.jpg` | print com o resumo de todas as execuções |
 
-Vídeo (até 3 min): ⟨https://youtu.be/ZBXWLgz2mWg⟩
+Vídeo (até 3 min): https://youtu.be/ZBXWLgz2mWg
 
 > Template final com `Timeout: 10` (depois do ajuste do Passo 5).
 

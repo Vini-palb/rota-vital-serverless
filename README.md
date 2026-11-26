@@ -102,7 +102,6 @@ Print do resumo: [`evidencias/resumo-execucao.jpg`](evidencias/resumo-execucao.j
 
 ## Respostas
 
-> ✏️ Rascunho. Reescreva com as suas palavras e ajuste ao que você observou.
 
 **1. Por que a primeira invocação demorou mais que a segunda? O que acontece na fase de Init?**
 
@@ -144,7 +143,7 @@ Pasta [`evidencias/`](evidencias/): saídas do `roteiro.sh` e prints de cada pas
 | `03-timeout-3s.txt` / `03-timeout-10s.txt` | erro de tempo limite e chamada depois do ajuste |
 | `*.png` | prints dos terminais |
 
-Vídeo (até 3 min): ⟨link⟩
+Vídeo (até 3 min): ⟨https://youtu.be/ZBXWLgz2mWg⟩
 
 > Template final com `Timeout: 10` (depois do ajuste do Passo 5).
 
